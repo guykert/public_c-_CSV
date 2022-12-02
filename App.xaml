@@ -1,0 +1,48 @@
+﻿<Application x:Class="scanner.csv.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:scanner.csv"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             StartupUri="Login.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <sys:String x:Key="MessageLog">...</sys:String>
+            <sys:String x:Key="Token">no</sys:String>
+            <sys:String x:Key="dominio">http://www.desarrollos-csv.com</sys:String>
+            <sys:Boolean x:Key="PermitirAcceso">false</sys:Boolean>
+            <sys:Int32 x:Key="usuario_id">false</sys:Int32>
+            <!--<sys:Double  x:Key="heigntLog">48</sys:Double>
+            <sys:Double  x:Key="heigntLog2">45</sys:Double>-->
+            <sys:Double  x:Key="heigntLog">28</sys:Double>
+            <sys:Double  x:Key="heigntLog2">24</sys:Double>
+            <SolidColorBrush x:Key="BackgroundLog">Red</SolidColorBrush>
+            <SolidColorBrush x:Key="ForegroundLog">White</SolidColorBrush>
+            <Visibility x:Key="VisibilityLog">Hidden</Visibility>
+            <Visibility x:Key="VisibilityProgress">Hidden</Visibility>
+            <sys:Int32 x:Key="colegio_predeterminado"></sys:Int32>
+            <sys:String x:Key="nombre_scanner_predeterminado">no</sys:String>
+            <sys:String x:Key="nombre_usuario">no</sys:String>
+            <sys:Int32 x:Key="anio_predeterminado">no</sys:Int32>
+            <sys:Int32 x:Key="template_predeterminado">no</sys:Int32>
+            <sys:String x:Key="escanner_inicializado">no</sys:String>
+            <sys:String x:Key="coger_driver">no</sys:String>
+            <sys:String x:Key="nombre_colegio_predeterminado">no</sys:String>
+            <sys:String x:Key="url_db_sqlite">C:\\temp\\EasyTest.sqlite</sys:String>
+            <sys:String x:Key="generar_template">no</sys:String>
+            <sys:String x:Key="ruta_template">no</sys:String>
+
+
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

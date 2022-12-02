@@ -1,0 +1,195 @@
+﻿<Window x:Class="scanner.csv.Login"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Background="#efefef">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="450"/>
+
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#FF673AB7">
+                    <StackPanel HorizontalAlignment="Right">
+                        <Button Width="23" Height="23" materialDesign:ShadowAssist.ShadowDepth="Depth1" Padding="0" Margin="5" Click="Button_Click">
+                            <materialDesign:PackIcon Kind="WindowClose" Width="23" Height="21"/>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <materialDesign:ColorZone Mode="PrimaryMid" Margin="18,183,-18,-183"/>
+            <TextBlock x:Name="bienvenido" HorizontalAlignment="Left" Height="48" Margin="52,21,0,0" TextWrapping="Wrap" Text="Bienvenido" VerticalAlignment="Top" Width="285" Foreground="White" FontFamily="Calibri" FontSize="36" FontStyle="Italic"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Vertical"  Margin="110 20 0 0">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="account" VerticalAlignment="Bottom" Margin="5 8"/>
+                    <TextBox x:Name="txtUsername"   Text="" Width="245" materialDesign:HintAssist.Hint="Usuario"  FontSize="20" materialDesign:HintAssist.IsFloating="True" FontFamily="Calibri" FontStyle="Italic" Foreground="#FF515151"  KeyDown="OnKeyDownHandler"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <materialDesign:PackIcon Kind="Key" Foreground="{Binding BorderBrush, ElementName=txt_contraseña}" VerticalAlignment="Bottom" Margin="5 8" />
+                    <PasswordBox x:Name="txtPassword" Password="" Width="245" materialDesign:HintAssist.Hint="Contraseña" FontSize="20" materialDesign:HintAssist.IsFloating="True" FontFamily="Calibri" FontStyle="Italic" Foreground="#FF515151" KeyDown="OnKeyDownHandler"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+        <Button x:Name="btnLogin"  Content="ENTRAR"  Width="270" HorizontalAlignment="center" Margin="117,178,113,229" Grid.Row="2" Click="BtnLogin1_Click" FontFamily="Calibri" FontSize="20" TextOptions.TextHintingMode="Fixed" Height="Auto"/>
+
+
+
+        <Canvas HorizontalAlignment="Left" Visibility="{DynamicResource VisibilityLog}" x:Name="cuadro_error" Height="27"   Margin="107,159,0,0" Grid.Row="2" VerticalAlignment="Top" Width="297">
+
+
+
+            <TextBox
+                
+                x:Name="texto_error"
+                Grid.Row="2"
+                TextWrapping="Wrap"
+                VerticalAlignment="Center"
+                MinWidth="250"
+                MinHeight="20"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Auto"
+                SpellCheck.IsEnabled="True"
+                Width="255"
+                Background="{DynamicResource BackgroundLog}"
+                Foreground="{DynamicResource ForegroundLog}"
+                Visibility="{DynamicResource VisibilityLog}"
+                
+                 
+                
+                Padding="6,0"
+                MaxHeight="42"
+                Text="{DynamicResource MessageLog}" HorizontalAlignment="Left" 
+                Canvas.Top="77" Canvas.Left="16" BorderBrush="#00000000" FontFamily="Calibri" Margin="0" 
+                Height="{DynamicResource heigntLog2}" FontStyle="Italic" TextAlignment="Center" RenderTransformOrigin="0,0" Panel.ZIndex="13"
+                />
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="{DynamicResource heigntLog}" VerticalAlignment="Top" Width="272" Background="{DynamicResource BackgroundLog}" CornerRadius="4" Canvas.Left="9" Canvas.Top="75"/>
+
+
+        </Canvas>
+
+
+
+
+
+
+
+
+
+
+        <Label x:Name="version_label" HorizontalAlignment="Right" Height="26" Margin="10,4,20,0" VerticalAlignment="Top" Width="76" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="11" FontWeight="Bold" FontStretch="Expanded"/>
+        <ProgressBar x:Name="progressbar" Visibility="{DynamicResource VisibilityProgress}" IsIndeterminate="True" Height="10" Margin="117,153,113,287"  Grid.Row="2" BorderThickness="0" Background="#FFB0B0B0" Foreground="#FF673AB7" BorderBrush="{x:Null}" />
+
+        <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Click="BtnAyuda_Click" ToolTip="ayuda"  Content="?" Margin="422.5,344.625,42.499,70.375" Grid.Row="2" FontFamily="Calibri" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  BorderThickness="0" ClipToBounds="True" Padding="0"  Panel.ZIndex="1" Width="35" FontSize="20" MinWidth="35" MinHeight="35" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Center" UseLayoutRounding="False" Focusable="False"/>
+
+
+        <Grid Grid.Row="2" Margin="0,10,0,-10">
+            <Border BorderThickness="1" HorizontalAlignment="Left"  Height="466" Margin="121,286,-208,-302" VerticalAlignment="Top" Width="587" Background="#FF673AB7" RenderTransformOrigin="0.5,0.5" CornerRadius="30" Panel.ZIndex="-1">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-45"/>
+                        <RotateTransform Angle="23"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="5" BlurRadius="30" Color="Black" Direction="161" Opacity="0.3"/>
+                </Border.Effect>
+
+
+
+
+            </Border>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="466" Margin="-196,361,0,-377" VerticalAlignment="Top" Width="587" Background="White" RenderTransformOrigin="0.5,0.5" CornerRadius="30" Panel.ZIndex="-2">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-45"/>
+                        <RotateTransform Angle="23"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="30" Color="Black" Direction="161" Opacity="0.1"/>
+                </Border.Effect>
+
+            </Border>
+            <Border BorderThickness="2" HorizontalAlignment="Center" Height="36" VerticalAlignment="Center" Width="36" CornerRadius="20 " BorderBrush="White" Margin="421,334,42,79"/>
+
+
+
+        </Grid>
+        <Image Margin="41,294,346,110" Grid.Row="2" Source="/imagenes/logos/logo.png" Stretch="Fill"/>
+
+        <Border BorderThickness="0"  HorizontalAlignment="Left" Height="390" Margin="-167,-196,0,0" VerticalAlignment="Top" Width="493" Background="#FF673AB7" CornerRadius="30" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="3" Panel.ZIndex="-1">
+            <Border.LayoutTransform >
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="25"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.LayoutTransform>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="12"/>
+                    <RotateTransform Angle="-23"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="2" BlurRadius="15" Color="Black" Direction="270" Opacity="0.5"/>
+            </Border.Effect>
+
+        </Border>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="390" Margin="86,-227,-79,0" VerticalAlignment="Top" Width="493" Background="White" CornerRadius="30" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Panel.ZIndex="-2">
+            <Border.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="25"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.LayoutTransform>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="12"/>
+                    <RotateTransform Angle="-23"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="30" Color="Black" Direction="270" Opacity="0.1"/>
+            </Border.Effect>
+
+        </Border>
+        <Image Margin="183,299,215,111" Grid.Row="2" Source="imagenes/logos/LogoSoftri.png" Stretch="Fill"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="32" Margin="582,339,-116,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="34"/>
+
+
+    </Grid>
+</Window>

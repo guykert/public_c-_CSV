@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="scanner.csv.csvSubRegion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:scanner.csv"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="15,15,15,0" x:Name="GridPrincipal">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+
+
+                    <RowDefinition Height="40"/>
+
+
+                    <RowDefinition Height="120"/>
+
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Background="#FF4F5EC7" Grid.Row="0" >
+
+
+
+                    <Label Content="Sub Región" HorizontalAlignment="Center" FontSize="16" Foreground="#DDFFFFFF"  FontWeight="Bold" Margin="358,0" Height="32" Width="73" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+
+
+                </StackPanel>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="Nombre : " Margin="10" VerticalAlignment="Center"/>
+                    <Label x:Name="labNombreTemplate" Grid.Row="0" Grid.Column="0" Margin="74,10,10,10"  VerticalAlignment="Center"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Content="Descripción : " Margin="10" VerticalAlignment="Center"/>
+                    <Label x:Name="labDescripcionTemplate" Grid.Row="0" Grid.Column="1" Margin="74,10,10,10"  VerticalAlignment="Center"/>
+
+
+
+                    <Grid Grid.Row="1" Grid.Column="0">
+
+                        <Label Grid.Row="1" Grid.Column="0" Content="Imagen Template : " Margin="10" VerticalAlignment="Center"/>
+                        <Button x:Name="btnSearchImage" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"  Height="24" Width="24"
+                                            ToolTip="MaterialDesignFloatingActionMiniButton" HorizontalAlignment="Left" Margin="355,18,0,18" Click="BtnSearchImage_Click" RenderTransformOrigin="5.871,0.272">
+                            <materialDesign:PackIcon Kind="Search" Height="24" Width="24" />
+                        </Button>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="31*"/>
+                            <RowDefinition Height="29*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Content="Imagen Template Con Reciones : " Margin="10,17" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                        <Button x:Name="btnSearchImageRegiones" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"  Height="24" Width="24"
+                                            ToolTip="MaterialDesignFloatingActionMiniButton" HorizontalAlignment="Left" Margin="355,18,0,18" Click="BtnSearchImageTemplate_Click" RenderTransformOrigin="5.871,0.272" Grid.RowSpan="2">
+                            <materialDesign:PackIcon Kind="Search" Height="24" Width="24" />
+                        </Button>
+
+                    </Grid>
+
+
+
+                </Grid>
+
+
+
+                <StackPanel Background="#FFC3C8EC" Grid.Row="2" >
+
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="BottomNew"  Grid.Column="1" VerticalAlignment="Center" Width="67" Height="29"  Content="NUEVO" Visibility="Visible" Background="#FFFDA11D" Click="BottomNew_Click"  Margin="5" BorderBrush="{x:Null}" Grid.IsSharedSizeScope="True" HorizontalAlignment="Left" BorderThickness="0" FontSize="10" Foreground="#DDFFFFFF" FontWeight="Bold"  />
+
+                        <Button x:Name="BottomVolver"  Grid.Column="2" VerticalAlignment="Bottom" Width="80" Content="Volver" Visibility="Visible" Background="#FF286BE0" Click="BottomVolver_Click"    Margin="5" BorderBrush="{x:Null}" Grid.IsSharedSizeScope="True" HorizontalAlignment="Right" BorderThickness="0" FontSize="10" Foreground="#DDFFFFFF" FontWeight="Bold"  />
+
+                    </Grid>
+
+
+
+                </StackPanel>
+
+
+
+
+                <DataGrid Grid.Row="3" IsReadOnly="True" x:Name="dataGridName"  AutoGenerateColumns="False" VerticalAlignment="Top" SelectionChanged="DataGridName_SelectionChanged">
+
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="id" Visibility="Hidden" Binding="{Binding id}" FontSize="20"/>
+                        <DataGridTextColumn Header="nombre" Binding="{Binding nombre}"  Width="5*"  FontFamily="Calibri" Foreground="#FF0095EB"/>
+                        <DataGridTextColumn Header="descripcion" Binding="{Binding descripcion}"  Width="5*"  FontFamily="Calibri" Foreground="#FF0095EB"/>
+                        <DataGridTextColumn Header="Valor" Binding="{Binding valor}"  Width="5*"  FontFamily="Calibri" Foreground="#FF0095EB"/>
+                        <DataGridTextColumn Header="tipo_elemento_id" Binding="{Binding tipo_elemento_id}"  Width="5*"  FontFamily="Calibri" Foreground="#FF0095EB"/>
+
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btnUpdate" Height="26" Width="26" Click="btnUpdate_Click" ToolTip="MaterialDesignFloatingActionMiniButton"  Style="{StaticResource MaterialDesignFloatingActionButton}" BorderBrush="{x:Null}" Background="#FF0095EB">
+                                        <materialDesign:PackIcon Kind="Edit" Height="15" Width="15" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  x:Name="btnDelete" Height="26" Width="26" Click="btnDelete_Click" ToolTip="MaterialDesignFloatingActionMiniButton" Style="{StaticResource MaterialDesignFloatingActionButton}" BorderBrush="{x:Null}" Background="#FF0095EB">
+                                        <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
